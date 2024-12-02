@@ -6,6 +6,7 @@ from pydantic import BaseModel
 from dotenv import dotenv_values
 
 
+
 class Meal(BaseModel):
     name: str
     calories: int
@@ -16,8 +17,8 @@ class Meal(BaseModel):
 
 def fill_meal(image):
     
-    env = dotenv_values(".env")
-    openai_client = OpenAI(api_key=env["OPENAI_API_KEY"])
+    # env = dotenv_values(".env")
+    # openai_client = OpenAI(api_key=env["OPENAI_API_KEY"])
     instructor_openai_client = instructor.from_openai(openai_client)
     
     meal = instructor_openai_client.chat.completions.create(
